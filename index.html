@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/bower_components/angular/angular.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+  </head>
+  <body ng-app="exampleApp">
+
+    <div ng-controller="WelcomeCtrl as wctrl">
+      <input type="text" placeholder="Ingrese su nombre" ng-model="wctrl.firstName">
+
+      <h1>Su nombre es <span ng-bind="wctrl.firstName"></span></h1>
+
+      <div ng-if="wctrl.firstName">
+        <p>Hola <span ng-bind="wctrl.prefix"></span> <span ng-bind="wctrl.firstName"></span>, quiere cambiar su nombre?</p>
+
+        <input type="text" ng-model="wctrl.firstName" placeholder="Ingrese nuevo nombre">
+      </div>
+    </div>
+
+  </body>
+</html>
