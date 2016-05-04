@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="clase3.js"></script>
+  </head>
+  <body ng-app="exampleApp" ng-controller="WelcomeCtrl as wctrl">
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th ng-repeat="(key,value) in wctrl.array[0]" ng-bind="key"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in wctrl.array">
+          <td ng-repeat="(key,value) in wctrl.array[0]" ng-bind="item[key]"></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </body>
+</html>

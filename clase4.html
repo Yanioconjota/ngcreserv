@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/bower_components/angular/angular.js" charset="utf-8"></script>
+    <script src="clase4.js" charset="utf-8"></script>
+  </head>
+  <body ng-app="exampleApp">
+    <div ng-controller="TestCtrl as ctrl">
+    <p>Search: <input type="text" placeholder="Search" ng-model="ctrl.searchCriteria"></p>
+    <p>Show: <input type="text" ng-model="ctrl.numberOfResults"></p>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th ng-click="ctrl.sortCriteria='name';ctrl.sortReverse=!ctrl.sortReverse">Name</th>
+          <th ng-click="ctrl.sortCriteria='country';ctrl.sortReverse=!ctrl.sortReverse">Country</th>
+        </tr>
+      </thead>
+      <tr ng-repeat="row in ctrl.rows | filter:ctrl.searchCriteria | orderBy:ctrl.sortCriteria:ctrl.sortReverse | limitTo:ctrl.numberOfResults | countryAbbreviator:2">
+        <td ng-bind="::row.name"></td>
+        <td ng-bind="::row.country"></td>
+      </tr>
+    </table>
+
+    </div>
+  </body>
+</html>
